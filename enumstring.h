@@ -13,7 +13,7 @@ public:
     static const auto& getMap() { return m_eMap; }
 };
 
-template<>
+template<>  //это в cpp
 std::map<std::string, COLORS> EnumMap<COLORS>::m_eMap = {
                             {std::string("black"), COLORS::black},
                             {std::string("green"), COLORS::green},
@@ -29,7 +29,7 @@ auto stringToEnum(const std::string& str)
 }
 
 template <typename T>
-auto enumToString(T t)
+auto& enumToString(T t)
 {
     for (auto& [F, S] : EnumMap<T>::getMap())
     {
